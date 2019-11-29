@@ -14,6 +14,18 @@
         <div class="page-header">
             <h1>Create Product</h1>
         </div>
+
+        <?php
+            if ($_POST) {
+                include 'config/database.php';
+
+                try{
+                    $query = "INSERT INTO products SET name=:name, description=:description, price=:price, created=:created";
+                } catch(PDOException $exception) {
+                    die('ERROR: '.$exception->getMessage());
+                }
+            }
+        ?>
     
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <table>
@@ -21,7 +33,6 @@
                     <td>Name</td>
                     <td><input type='text' name='name' class='form-control' /></td>
                 </tr>
-
                 <tr>
                     <td>Description</td>
                     <td><textarea name="description" class="form-control"></textarea></td>
