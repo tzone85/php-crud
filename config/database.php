@@ -1,5 +1,5 @@
 <?php
-$host="localhost";
+$host="127.0.0.1";
 $db_name="php_crud";
 $username="root";
 $password="PholaMine01";
