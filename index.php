@@ -46,7 +46,50 @@
 
 			//check if more than 0 records were found
 			if ($num > 0) {
-				// data from the db comes here
+				echo "<table class='table table-hover table-responsive table-bordered'>";
+
+					//creating the table headings
+					echo "<tr>";
+						echo "<th>ID</th>";
+						echo "<th>Name</th>";
+						echo "<th>Description</th>";
+						echo "<th>Price</th>";
+						echo "<th>Action</th>";
+					echo "</tr>";
+
+				/**
+				 * table body.
+				 * retrieve table contents.
+				 * fetch() is faster than fetchAll()
+				 * https://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
+				 *
+				 */
+
+				while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+					// extra row
+					// this will make $row['fistname'] to
+					// just $firstname only
+
+					extract($row);
+
+					// create new table as per record
+					echo "<tr>";
+						echo "<td>{$id}</td>";
+						echo "<td>{$name}</td>";
+						echo "<td>{$desctiption}</td>";
+						echo "<td>{&#36;{$price}</td>";
+						echo "<td>";
+							// read one record
+							echo "<a href='read_one.php?id={$id}' class='btn btin-info m-r-1em'>Read</a>";
+
+							echo "<a href='update.php?id={$id}' class='btn btn-primary m-r-1em'>Edit</a>";
+
+							echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger'>Delete</a>";
+						echo "</td>";
+					echo "</tr>";
+				}
+
+				echo "</table>";
 			} else {
 				echo "<div class='alert alert-danger'>No records found.</div>";
 			}
