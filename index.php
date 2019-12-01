@@ -76,8 +76,8 @@
 					echo "<tr>";
 						echo "<td>{$id}</td>";
 						echo "<td>{$name}</td>";
-						echo "<td>{$desctiption}</td>";
-						echo "<td>{&#36;{$price}</td>";
+						echo "<td>{$description}</td>";
+						echo "<td>&#36;{$price}</td>";
 						echo "<td>";
 							// read one record
 							echo "<a href='read_one.php?id={$id}' class='btn btin-info m-r-1em'>Read</a>";
