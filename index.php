@@ -27,7 +27,32 @@
 			<h1>Read Products</h1>
 		</div>
 
-		<!-- PHP code to read records will come here -->
+		<!-- code for reading records -->
+		<?php
+			include 'config/database.php';
+
+			// delete msg prompt will be here
+
+			// select all data
+			$query = "SELECT id, name, description, price FROM products ORDER BY id DESC";
+			$stmt = $con->prepare($query);
+			$stmt->execute();
+
+			// getting the number of rows returned
+			$num = $stmt->rowCount();
+
+			// link to create record form
+			echo "<a href='create.php' class='btn btn-primary m-b-1em'>Create New Product</a>";
+
+			//check if more than 0 records were found
+			if ($num > 0) {
+				// data from the db comes here
+			} else {
+				echo "<div class='alert alert-danger'>No records found.</div>";
+			}
+
+		?>
+
 	</div> <!-- end .container -->
 
 	<!-- jQuery (necessary for bootstrap's js plugins) -->
