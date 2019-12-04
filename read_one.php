@@ -74,7 +74,6 @@
 
     </div> <!-- end .container -->
 
-
     <!-- jQuery (necessary for bootstrap's js plugins) -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
