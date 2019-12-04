@@ -2,7 +2,7 @@
 $host="127.0.0.1";
 $db_name="php_crud";
 $username="root";
-$password="PholaMine01";
+$password="C0ke_12345";
 
 try {
     $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
