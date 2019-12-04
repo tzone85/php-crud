@@ -50,6 +50,41 @@
         } catch (PDOException $exception) {
             die('ERROR: '.$exception->getMessage());
         }
+
+        // PHP post to update the record after hitting save button
+        // check if form was submitted
+
+        if($_POST) {
+            try {
+                // write update query
+                // label fields instead of using question marks for there's many this time around
+                $query = "UPDATE products SET name=:name, description=:description, price=:price WHERE id=:id";
+
+                // prepare query
+                $stmt = $con->prepare($query);
+
+                // post values
+                $name = htmlspecialchars(strip_tags($_POST['name']));
+                $description = htmlspecialchars(strip_tags($_POST['description']));
+                $price = htmlspecialchars(strip_tags($_POST['price']));
+
+                // bind the parameters
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':id', $id);
+
+                // Excecute the query
+                if ($stmt->execute()) {
+                    echo "<div class='alert alert-success'>Record was updated.</div>";
+                } else {
+                    echo "<div class='alert alert-danger'>Unable to update record. Please try again</div>";
+                }
+
+            } catch (PDOException $exception) {
+                die('ERROR: '.$exception->getMessage());
+            }
+        }
     ?>
     
     <!-- html form where new record information can be updated -->
