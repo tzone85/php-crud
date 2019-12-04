@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Crud Application</title>
-    
-    <!-- Latest compiled and minified Bootstrap CSS  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
     
@@ -44,14 +46,12 @@
             // values to fill up our form
             $name = $row['name'];
             $description = $row['description'];
-            $price = row['price'];
+            $price = $row['price'];
 
         } catch (PDOException $exception) {
             die('ERROR: '.$exception->getMessage());
         }
         ?>
-
-        <!-- HRML read one record table will be here -->
 
         <table class="table table-hover table-responsive table-bordered">
             <tr>
@@ -64,7 +64,7 @@
             </tr>
             <tr>
                 <td>Price</td>
-                <td><?php htmlspecialchars($price, ENT_QUOTES); ?></td>
+                <td><?php echo htmlspecialchars($price, ENT_QUOTES); ?></td>
             </tr>
             <tr>
                 <td></td>
@@ -78,7 +78,7 @@
     <!-- jQuery (necessary for bootstrap's js plugins) -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <!-- Compiled and minified Bootstrap JavaScript -->
-    <script src="https://maxcdn.boostrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
