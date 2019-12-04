@@ -31,7 +31,13 @@
 		<?php
 			include 'config/database.php';
 
-			// delete msg prompt will be here
+			// delete msg prompt
+            $action = isset($_GET['action']) ? $_GET['action'] : "";
+
+            // if it was redirected from delete.php
+            if ($action=='deleted') {
+                echo "<div class='alert alert-success'>Regard was deleted</div>";
+            }
 
 			// select all data
 			$query = "SELECT id, name, description, price FROM products ORDER BY id DESC";
@@ -104,6 +110,17 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!--	confirm delete record will be here-->
+    <!--	confirm delete record will be here-->
+    <script type="text/javascript">
+        // confirm record deletion
+        function delete_user(id) {
+
+            var answer = confirm('Are you sure?');
+            if (answer) {
+                // if user clicks ok, pass the id to delete.php and execute delete query
+                window.location = 'delete.php?id='+id;
+            }
+        }
+    </script>
 </body>
 </html>
