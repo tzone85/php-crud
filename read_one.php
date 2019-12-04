@@ -49,10 +49,29 @@
         } catch (PDOException $exception) {
             die('ERROR: '.$exception->getMessage());
         }
-
         ?>
 
         <!-- HRML read one record table will be here -->
+
+        <table class="table table-hover table-responsive table-bordered">
+            <tr>
+                <td>Name</td>
+                <td><?php echo htmlspecialchars($name, ENT_QUOTES); ?></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><?php echo htmlspecialchars($description, ENT_QUOTES); ?></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><?php htmlspecialchars($price, ENT_QUOTES); ?></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="index.php" class="btn btn-danger">Back to read products</a></td>
+            </tr>
+        </table>
+
     </div> <!-- end .container -->
 
 
